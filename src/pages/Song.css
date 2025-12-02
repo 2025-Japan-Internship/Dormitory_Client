@@ -4,9 +4,11 @@
   }
   
   /* Header */
-  .header {
+  .screenContainer .header {
     display: flex;
-    width: 231px;
+    width: 100%;
+    height: 80px !important; 
+    border-bottom: 1px solid #f4f4f4 !important;
     justify-content: space-between;
     align-items: center;
   }
@@ -34,9 +36,10 @@
   
   /* ContentArea */
   .contentArea {
+    border-top: #f4f4f4 !important;
     flex-grow: 1; /* 남은 공간을 차지 */
     padding: 20px;
-    margin-bottom: 423px;
+    margin-bottom: 400px;
   }
   
   /* InputGroup */

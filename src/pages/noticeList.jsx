@@ -1,22 +1,39 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 import Icon_back from '../assets/icon_back.png';
+import noticeData from "../data/notice.json"; // JSON 불러오기
 import {
   Container, Header, BackBtn, Title, ScrollArea, ListBox, NoticeItem,
   ItemRow, NoticeTitle, NoticeDate, NewDot, BottomNav, NavBar, ConfirmButton, EditButton
 } from "./noticeList.styles";
 
+/*export const Container = styled.div`
+  width: 393px;
+  height: 898px;
+  background: #ffffff;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+`;
+*/
 
-// NoticeList 컴포넌트
-export default function NoticeList({ notices }) {
+
+export default function NoticeList() {
   const navigate = useNavigate();
+  const [noticeList, setNoticeList] = useState([]);
 
-  const noticeList = notices || [
-    { id: 1, title: "첫 번째 공지사항", date: "2025-12-02", content: "첫 번째 공지 내용입니다.", isNew: true },
-    { id: 2, title: "두 번째 공지사항", date: "2025-12-01", content: "두 번째 공지 내용입니다.", isNew: false },
-    { id: 3, title: "세 번째 공지사항", date: "2025-11-30", content: "세 번째 공지 내용입니다.", isNew: false },
-  ];
+  const sortedNotices = [...noticeData].sort(
+    (a, b) => new Date(b.date) - new Date(a.date) // 최신 순
+  );
+
+  useEffect(() => {
+    // JSON 데이터 불러오기
+    setNoticeList(noticeData);
+  }, []);
 
   const handleClick = (id) => {
+    // 클릭 시 상세페이지로 이동
     navigate(`/notices/${id}`);
   };
 
@@ -29,25 +46,12 @@ export default function NoticeList({ notices }) {
         <Title>공지사항</Title>
       </Header>
 
-
-      <ScrollArea>
-        <ListBox>
-          {noticeList.map((n, idx) => (
-            <NoticeItem key={n.id} onClick={() => handleClick(n.id)} isLast={idx === noticeList.length - 1}>
-              <ItemRow>
-                <NoticeTitle>{n.title}</NoticeTitle>
-              </ItemRow>
-              <NoticeDate>{n.date}</NoticeDate>
-            </NoticeItem>
-          ))}
-        </ListBox>
-      </ScrollArea>
-
-      <BottomNav>
-        <NavBar />
-        <ConfirmButton>✓</ConfirmButton>
-        <EditButton>✎</EditButton>
-      </BottomNav>
+      {sortedNotices.map((n) => (
+        <NoticeItem key={n.id} onClick={() => handleClick(n.id)}>
+          <NoticeTitle>{n.title}</NoticeTitle>
+          <NoticeDate>{n.date}</NoticeDate>
+        </NoticeItem>
+      ))}
     </Container>
   );
 }

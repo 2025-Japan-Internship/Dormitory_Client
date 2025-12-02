@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Back from '../assets/back.png';
+import { supabase } from "../supabaseClient";
 import './Song.css';
+
 
 async function fetchAlbumArt(title, artist) {
   const query = encodeURIComponent(`${artist} ${title}`);
@@ -28,22 +30,60 @@ function Song(){
 
   const handleSubmit = async () => {
     if (!songTitle || !songArtist) {
-        alert("제목과 가수를 모두 입력하세요!");
-        return;
+      alert("제목과 가수를 모두 입력하세요!");
+      return;
     }
 
+    // 1. 중복 체크
+    const { data: existing, error: checkError } = await supabase
+      .from('songs')
+      .select('*')
+      .eq('title', songTitle)
+      .eq('artist', songArtist)
+      .limit(1);
+
+    if (checkError) {
+      console.error("중복 체크 오류:", checkError);
+      alert("오류가 발생했습니다.");
+      return;
+    }
+
+    if (existing.length > 0) {
+      alert("이미 등록된 곡입니다!");
+      return;
+    }
+
+    // 2. iTunes에서 앨범 이미지 가져오기
     const albumImg = await fetchAlbumArt(songTitle, songArtist);
 
-    navigate("/home", {
-        state: {
-          newSong: {
-            title: songTitle,
-            artist: songArtist,
-            imgUrl: albumImg || "https://placehold.co/300x300?text=No+Image"
-          }
+    // 3. DB에 등록
+    const { error } = await supabase
+      .from('songs')
+      .insert([
+        {
+          title: songTitle,
+          artist: songArtist,
+          img_url: albumImg || "https://placehold.co/300x300?text=No+Image"
         }
+      ]);
+
+    if (error) {
+      console.error("등록 오류:", error);
+      alert("등록 실패");
+      return;
+    }
+
+    // 4. 홈으로 이동 (state 전달)
+    navigate("/home", {
+      state: {
+        newSong: {
+          title: songTitle,
+          artist: songArtist,
+          imgUrl: albumImg || "https://placehold.co/300x300?text=No+Image"
+        }
+      }
     });
-};
+  };
 
   return (
     <div className="screenContainer">

@@ -17,6 +17,8 @@ export const Header = styled.header`
   align-items: center;
   border-bottom: 1px solid #e0e0e0;
   position: relative;
+  height: 80px !important; 
+  border-bottom: #f4f4f4;
 `;
 
 export const BackBtn = styled.button`
@@ -31,7 +33,7 @@ export const BackBtn = styled.button`
 `;
 
 export const Title = styled.h1`
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
   color: #333;
