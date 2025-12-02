@@ -12,7 +12,6 @@ import NoticeDetail from "./pages/noticeDetail";
 import noticedata from "./data/notice.json";
 import SelectRoom from "./pages/SelectRoom";
 
-
 const App = () => {
   return (
       <Routes>

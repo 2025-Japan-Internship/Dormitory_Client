@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Icon_back from '../assets/icon_back.png';
 import noticeData from "../data/notice.json"; // JSON 불러오기
+import Icon_back from '../assets/icon_back.png';
+import {
+  Container, Header, BackBtn, Title, ScrollArea, ListBox, NoticeItem,
+  ItemRow, NoticeTitle, NoticeDate, NewDot, BottomNav, NavBar, ConfirmButton, EditButton
+} from "./noticeList.styles";
 
 export const Container = styled.div`
   width: 393px;
@@ -13,47 +18,6 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Header = styled.header`
-  background: #ffffff;
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
-
-export const BackBtn = styled.button`
-  position: absolute;
-  left: 20px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-`;
-
-export const Title = styled.h1`
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-`;
-
-export const NoticeItem = styled.div`
-  padding: 20px;
-  border-bottom: 1px solid #f0f0f0;
-  cursor: pointer;
-`;
-
-export const NoticeTitle = styled.div`
-  font-size: 15px;
-  color: #333;
-`;
-
-export const NoticeDate = styled.p`
-  font-size: 13px;
-  color: #999;
-  margin: 6px 0 0 0;
-`;
 
 export default function NoticeList() {
   const navigate = useNavigate();

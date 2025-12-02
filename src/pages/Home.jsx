@@ -14,7 +14,7 @@ import noticeData from '../data/notice.json';
 
  
 
-import './Home.css';
+import './Home.css'
 
 
 
@@ -193,7 +193,7 @@ const Home = () => {
       <section className="mealSection">
         <div className="sectionHeader">
           <p className="sectionTitle">오늘의 급식</p>
-          <div className="moreArrow" style={{ backgroundImage: `url(${Arrow})` }} />
+          <div className="moreArrow" style={{ backgroundImage: `url(${Arrow})` }} onClick={() => navigate("/meal")}/>
         </div>
         <div className="mealCard">
           <div className="mealTimeSection">
@@ -207,7 +207,7 @@ const Home = () => {
 
       {/* Music Section */}
       <section className="musicSection">
-        <h2>오늘의 기상송</h2>
+      <p className="sectionTitle">오늘의 기상송</p>
         <div className="musicList">
           {musicList.map((music, idx) => (
             <div className="musicCard" key={idx}>
