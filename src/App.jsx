@@ -11,7 +11,6 @@ import NoticeList from "./pages/noticeList";
 import NoticeDetail from "./pages/noticeDetail";
 import noticedata from "./data/notice.json";
 
-
 const App = () => {
   return (
       <Routes>
