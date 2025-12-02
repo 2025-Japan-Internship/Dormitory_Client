@@ -1,0 +1,400 @@
+.container {
+    width: 393px;
+    height: 1018px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    justify-content: space-between;
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-bottom: 24px;
+  }
+  
+  .headerment {
+    width: 215px;
+    height: 60px;
+  }
+  
+  .name {
+    color: #23D97B;
+    font-family: "SF Pro";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0;
+  }
+  
+  .greeting {
+    color: #111;
+    font-family: "SF Pro";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0;
+  }
+  
+  .headerIcons {
+    display: inline-flex;
+    align-items: center;
+    gap: 19px;
+  }
+  
+  .notificationBell {
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  
+  .profileCircle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #cccccc;
+    border: 1px solid #eeeeee;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .sliderSection {
+    padding: 15px;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+  .sliderWrapper {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .sliderWrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .sliderCard {
+    flex-shrink: 0;
+    width: 267px;
+    height: 200px;
+    margin-right: 12px;
+    padding: 20px;
+    border-radius: 12px;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+    background: linear-gradient(150deg, #23D97B 12.39%, #23D9A5 87.61%);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .timeAgo {
+    font-size: 12px;
+    font-weight: bold;
+    color: #23D97B;
+    background-color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin: 0 0 15px 0;
+    width: fit-content;
+  }
+  
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  
+  .userAvatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .userText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .userName {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .userPhone {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .cardTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFF;
+    margin: auto 0 0 0;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .arrowIcon {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFF;
+  }
+  
+  .paginationDots {
+    display: flex;
+    padding: 0 8px;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .dot {
+    width: 28px;
+    height: 5px;
+    border-radius: 100px;
+    background: #CCC;
+    transition: background 0.3s;
+  }
+  
+  .dot.active {
+    background: #23D97B;
+  }
+  
+  .navIcons {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 15px 10px;
+    background-color: #ffffff;
+    margin-top: 10px;
+  }
+  
+  .navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .iconWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .foodimg,
+  .postimg,
+  .suggestimg,
+  .morningimg {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .mealSection {
+    padding: 15px;
+    margin-top: 10px;
+    background-color: #F4F4F4;
+  }
+  
+  .sectionHeader {
+    display: flex;
+    width: 353px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sectionTitle {
+    color: #444;
+    font-family: "SF Pro";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .moreArrow {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    line-height: normal;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  
+  .mealCard {
+    width: 100%;
+    max-width: 361px;
+    border-radius: 12px;
+    border: 0.08px solid #CCC;
+    background: #FFF;
+    padding: 18px 20px 24px 24px;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+  }
+  
+  .mealTimeSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+  }
+  
+  .timeText {
+    color: #444;
+    font-family: "SF Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 590;
+    line-height: normal;
+  }
+  
+  .todayBadge {
+    color: #FFF;
+    font-family: "SF Pro";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    padding: 6px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    background: #23D97B;
+  }
+  
+  .kcalText {
+    color: #23D97B;
+    font-family: "SF Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .menuText {
+    color: #4D5967;
+    font-family: "SF Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .musicSection {
+    padding: 15px;
+    background: #F4F4F4;
+  }
+  
+  .musicList {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .musicList::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .musicCard {
+    flex-shrink: 0;
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  .albumArt {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    background-color: #cccccc;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .songTitle {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333333;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .artist {
+    font-size: 11px;
+    color: #666666;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .floatingScanner {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    border-radius: 34px;
+    background: #23D97B;
+    box-shadow: 0 3.4px 8.5px 0 rgba(0, 0, 0, 0.10);
+  }
+  
+  .scannerIcon {
+    width: 40.8px;
+    height: 40.8px;
+    flex-shrink: 0;
+    aspect-ratio: 40.80 / 40.80;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  

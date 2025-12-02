@@ -2,10 +2,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Song from './pages/Song';
-//import Meal from './pages/Meal';
-//import Test from './pages/Test';
-import Login from "./pages/Login";
 import Home from './pages/Home';
+import Meal from './pages/Meal';
+import Login from "./pages/Login";
 import SuggestionPage from './pages/SuggestionPage';
 import SuggestionWritePage from './pages/SuggestionWritePage'; // 작성 페이지
 import NoticeList from "./pages/noticeList";
@@ -16,8 +15,7 @@ const App = () => {
   return (
       <Routes>
         <Route path="/song" element={<Song />} />
-        {/*<Route path="/Meal" element={<Meal />} />
-        <Route path="/test" element={<Test />} />*/}
+        <Route path="/meal" element={<Meal />} />
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/suggestion" element={<SuggestionPage />} />

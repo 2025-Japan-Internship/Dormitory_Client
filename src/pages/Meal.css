@@ -1,0 +1,143 @@
+/* Meal.css */
+
+.container {
+  max-width: 450px; 
+  min-height: 100vh;
+  margin: 0 auto; 
+  background-color: #FFFFFF;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  width: 100%; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 10px 20px; 
+  box-sizing: border-box;
+}
+
+/* BackButton */
+.backButton {
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* PageTitle */
+.pageTitle {
+  color: #444;
+  text-align: center;
+  font-family: "SF Pro", sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* Day Tabs */
+.day-tabs-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding: 0 0 20px 0;
+  margin-bottom: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.day-tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.day-tabs-wrapper {
+  display: flex;
+  padding: 0 20px;
+}
+
+.day-tab {
+  width: 44px;
+  height: 61px;
+  border-radius: 100px;
+  margin-right: 12px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 12px 16px;
+  gap: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0; 
+}
+
+.day-tab.active {
+  background-color: #23D97B;
+  color: #FFFFFF;
+}
+
+.day-tab.inactive {
+  background-color: #F0F0F0;
+  color: #333333;
+}
+
+.day-number {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.day-label {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* Meal List (Background Area) */
+.meal-list {
+  width: 100%;
+  padding: 20px;
+  background-color: #F4F4F4;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+/* Individual Meal Card */
+.meal-card {
+  width: 100%; 
+  min-height: auto; 
+  border-radius: 12px;
+  border: 0.08px solid #CCC;
+  background: #FFF;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+  padding: 16px 20px; /* 내부 패딩 조정 */
+  box-sizing: border-box;
+}
+
+.meal-time-text {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 4px 0; /* 아래쪽 마진 추가 */
+  font-weight: 500;
+}
+
+.meal-kcal-text {
+  color: #23D97B;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px 0; /* 아래쪽 마진 추가 */
+}
+
+.meal-menu-text {
+  font-size: 16px;
+  color: #4D5967;
+  line-height: 1.4;
+  margin: 0;
+  white-space: pre-wrap;
+}

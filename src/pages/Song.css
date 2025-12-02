@@ -1,0 +1,113 @@
+.screenContainer {
+    width: 393px;
+    height: 898px;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    width: 231px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* BackButton */
+  .backButton {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+  }
+  
+  /* PageTitle */
+  .pageTitle {
+    color: #444;
+    text-align: center;
+    font-family: "SF Pro";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  /* ContentArea */
+  .contentArea {
+    flex-grow: 1; /* 남은 공간을 차지 */
+    padding: 20px;
+    margin-bottom: 423px;
+  }
+  
+  /* InputGroup */
+  .inputGroup {
+    margin-bottom: 30px;
+  }
+  
+  /* InputLabel2 */
+  .inputLabel2 {
+    color: #444;
+    font-family: "SF Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 0;
+  }
+  
+  /* InputLabel1 */
+  .inputLabel1 {
+    color: #444;
+    font-family: "SF Pro";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  /* TextInput */
+  .textInput {
+    width: 343px;
+    height: 46px;
+    border-radius: 8px;
+    background: #F4F4F4;
+    border: none;
+    padding-left: 16px;
+    color: #CCC;
+    font-family: "SF Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+  }
+  
+  /* SubmitButton */
+  .submitButton {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "SF Pro";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 590;
+    line-height: normal;
+    display: inline-flex;
+    padding: 18px 151px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #23D97B;
+    border: none;
+    width: 365px;
+    height: 55px;
+  }
+  
