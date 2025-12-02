@@ -37,6 +37,9 @@ export const Title = styled.h1`
   color: #333;
 `;
 
+
+
+
 export const ScrollArea = styled.main`
   flex: 1;
   overflow-y: auto;
