@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient";
+
 import Bell from '../assets/bell.png';
 import Profile from '../assets/profile.png';
 import Food from '../assets/food.png';
@@ -7,8 +10,7 @@ import Suggest from '../assets/suggest.png';
 import Morning from '../assets/morning.png';
 import Arrow from '../assets/arrow.png';
 import Qr from '../assets/qr.png';
-import { useLocation,useNavigate } from "react-router-dom";
-import { supabase } from "../supabaseClient";
+
 import './Home.css';
 
 const COLORS = {
@@ -19,7 +21,6 @@ const COLORS = {
   cardGreen: '#2ec757',
   cardLightGreen: '#90df99',
 };
-
 
 const SLIDER_CARDS = [
   { type: 'main', time: '12분전', userName: '김아람샘', phone: '010.1234.1234', title: '수능기간 휴관 안내', active: true },
@@ -36,107 +37,82 @@ const MEAL = {
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const newSong = location.state?.newSong;
   const sliderRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [musicList, setMusicList] = useState([]);
   const processedSongRef = useRef(null);
 
-useEffect(() => {
-  if (newSong && processedSongRef.current !== newSong) {
-    processedSongRef.current = newSong;
-    setMusicList(prev => [...prev, newSong]);
-    navigate(location.pathname, { replace: true, state: {} });
-  }
-}, [newSong, navigate, location.pathname]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [musicList, setMusicList] = useState([]);
+  const [nameOnly, setNameOnly] = useState("");
+  const [profileImage, setProfileImage] = useState("");
 
-    // (유저 이름 + 프로필)
-    const [nameOnly, setNameOnly] = useState("");
-    const [profileImage, setProfileImage] = useState("");
-    
+  const newSong = location.state?.newSong;
 
-    useEffect(() => {
-        if (newSong) {
-          setMusicList(prev => [...prev, newSong]);
-          navigate(location.pathname, { replace: true, state: {} });
-        }
-    }, [newSong, navigate, location.pathname]);
+  useEffect(() => {
+    if (newSong && processedSongRef.current !== newSong) {
+      processedSongRef.current = newSong;
+      setMusicList(prev => [...prev, newSong]);
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [newSong, navigate, location.pathname]);
 
-    // Supabase 유저 정보 가져오기
-    useEffect(() => {
-      const loadUser = async () => {
-        const { data: { user } } = await supabase.auth.getUser();
-        
-        if (user) {
-          const fullName = user.user_metadata?.full_name ?? "";
-          
-          const parsedName = fullName.includes("_")
-            ? fullName.split("_")[1]
-            : fullName;
-  
-          setNameOnly(parsedName);
-          const profilePic =
-          user.identities?.[0]?.identity_data?.picture ||
-          user.user_metadata?.avatar_url ||
-          "";
+  // Supabase 유저 정보 가져오기
+  useEffect(() => {
+    const loadUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
 
+      if (user) {
+        const fullName = user.user_metadata?.full_name ?? "";
+        const parsedName = fullName.includes("_") ? fullName.split("_")[1] : fullName;
+        setNameOnly(parsedName);
+
+        const profilePic = user.identities?.[0]?.identity_data?.picture || user.user_metadata?.avatar_url || "";
         setProfileImage(profilePic);
-        }
-      };
-  
-      loadUser();
-    }, []);
-
-    const handleScroll = () => {
-        const slider = sliderRef.current;
-        if (!slider) return;
-
-        const scrollLeft = slider.scrollLeft;
-        const slideWidth = 267 + 12; 
-        const index = Math.round(scrollLeft / slideWidth);
-        setActiveIndex(index);
+      }
     };
 
-    return (
-    <Container>
-      <Header>
-        <Headerment>
-            <Name>{nameOnly}님,</Name>
-            <Greeting>오늘 하루도 힘내세요</Greeting>
-        </Headerment>
-        <HeaderIcons>
-          <NotificationBell></NotificationBell>
-          <ProfileCircle 
-            src={profileImage || Profile} // Profile은 이미 import 되어 있음
-            alt="Profile"
-            referrerPolicy="no-referrer"
-          />
-        </HeaderIcons>
-      </Header>
+    loadUser();
+  }, []);
 
-      {/* 2. 슬라이더 */}
-      <SliderSection>
-        <SliderWrapper  ref={sliderRef} onScroll={handleScroll}>
+  const handleScroll = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    const scrollLeft = slider.scrollLeft;
+    const slideWidth = 267 + 12; 
+    const index = Math.round(scrollLeft / slideWidth);
+    setActiveIndex(index);
+  };
+
+  return (
+    <div className="container">
+      {/* Header */}
+      <header className="header">
+        <div className="headerment">
+          <p className="name">{nameOnly}님,</p>
+          <p className="greeting">오늘 하루도 힘내세요</p>
+        </div>
+        <div className="headerIcons">
+          <img src={Bell} alt="bell" className="notificationBell" />
+          <img src={profileImage || Profile} alt="Profile" className="profileCircle" referrerPolicy="no-referrer"/>
+        </div>
+      </header>
+
+      {/* Slider Section */}
+      <section className="sliderSection">
+        <div className="sliderWrapper" ref={sliderRef} onScroll={handleScroll}>
           {SLIDER_CARDS.map((card, index) => (
-            <SliderCard key={index}>
-              {/* 1. 상단 뱃지 */}
-              <TimeAgo>{card.time}</TimeAgo>
-              
-              {/* 2. 중간 정보 */}
-              <UserInfo>
-                    <UserAvatar src={profileImage || null} />
-
-                    <UserText>
-                        <UserName>{card.userName}</UserName>
-                        <UserPhone>{card.phone}</UserPhone>
-                    </UserText>
-              </UserInfo>
-              
-              {/* 3. 하단 제목 */}
-              <CardTitle>
+            <div className={`sliderCard ${card.active ? 'active' : ''}`} key={index}>
+              <p className="timeAgo">{card.time}</p>
+              <div className="userInfo">
+                <img src={profileImage || null} className="userAvatar" alt="user avatar"/>
+                <div className="userText">
+                  <p className="userName">{card.userName}</p>
+                  <p className="userPhone">{card.phone}</p>
+                </div>
+              </div>
+              <div className="cardTitle">
                 {card.title}
                 <span className="arrowIcon">〉</span>
-              </p>
+              </div>
             </div>
           ))}
         </div>
@@ -147,6 +123,7 @@ useEffect(() => {
         </div>
       </section>
 
+      {/* Navigation Icons */}
       <nav className="navIcons">
         <div className="navItem" onClick={() => navigate("/meal")}>
           <div className="iconWrapper">
@@ -177,6 +154,7 @@ useEffect(() => {
         </div>
       </nav>
 
+      {/* Meal Section */}
       <section className="mealSection">
         <div className="sectionHeader">
           <p className="sectionTitle">오늘의 급식</p>
@@ -192,15 +170,13 @@ useEffect(() => {
         </div>
       </section>
 
+      {/* Music Section */}
       <section className="musicSection">
         <h2>오늘의 기상송</h2>
         <div className="musicList">
           {musicList.map((music, idx) => (
             <div className="musicCard" key={idx}>
-              <div
-                className="albumArt"
-                style={{ backgroundImage: `url(${music.imgUrl})` }}
-              />
+              <div className="albumArt" style={{ backgroundImage: `url(${music.imgUrl})` }} />
               <p className="songTitle">{music.title}</p>
               <p className="artist">{music.artist}</p>
             </div>
@@ -208,6 +184,7 @@ useEffect(() => {
         </div>
       </section>
 
+      {/* Floating Scanner */}
       <div className="floatingScanner">
         <div className="scannerIcon" style={{ backgroundImage: `url(${Qr})` }} />
       </div>
