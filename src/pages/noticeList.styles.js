@@ -44,26 +44,26 @@ export const ScrollArea = styled.main`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
 export const ListBox = styled.div`
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-`;
+`
 
 export const NoticeItem = styled.div`
   padding: 18px 20px;
   border-bottom: ${(props) => (props.isLast ? "none" : "1px solid #f0f0f0")};
   cursor: pointer;
-`;
+`
 
 export const ItemRow = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 6px;
-`;
+`
 
 export const NoticeTitle = styled.h3`
   font-size: 14px;
@@ -72,13 +72,13 @@ export const NoticeTitle = styled.h3`
   margin: 0;
   line-height: 1.5;
   flex: 1;
-`;
+`
 
 export const NoticeDate = styled.p`
   font-size: 12px;
   color: #999;
   margin: 0;
-`;
+`
 
 export const NewDot = styled.span`
   width: 6px;
@@ -87,7 +87,7 @@ export const NewDot = styled.span`
   background: #ff4444;
   margin-top: 6px;
   flex-shrink: 0;
-`;
+`
 
 export const BottomNav = styled.div`
   height: 70px;
@@ -98,14 +98,14 @@ export const BottomNav = styled.div`
   justify-content: center;
   gap: 40px;
   padding: 0 20px;
-`;
+`
 
 export const NavBar = styled.div`
   width: 134px;
   height: 5px;
   background: #333;
   border-radius: 100px;
-`;
+`
 
 export const ConfirmButton = styled.button`
   width: 48px;
@@ -119,7 +119,7 @@ export const ConfirmButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 export const EditButton = styled.button`
   width: 24px;
@@ -129,4 +129,4 @@ export const EditButton = styled.button`
   color: #333;
   font-size: 20px;
   cursor: pointer;
-`;
+`

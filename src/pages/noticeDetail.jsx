@@ -11,6 +11,8 @@ export default function NoticeDetail({ notices }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  
+
   // 더미 데이터
   const noticeList = notices || [
     { id: 1, title: "첫 번째 공지사항", date: "2025-12-02", content: "첫 번째 공지 내용입니다." },
