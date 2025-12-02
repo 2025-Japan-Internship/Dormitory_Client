@@ -10,8 +10,25 @@ import Suggest from '../assets/suggest.png';
 import Morning from '../assets/morning.png';
 import Arrow from '../assets/arrow.png';
 import Qr from '../assets/qr.png';
+import noticeData from '../data/notice.json';
+
+ 
 
 import './Home.css'
+
+
+
+export function getTimeAgo(dateString) {
+  const now = new Date();
+  const past = new Date(dateString);
+  const diff = Math.floor((now - past) / 1000); // 초 단위 차이
+
+  if (diff < 60) return `${diff}초 전`;
+  if (diff < 3600) return `${Math.floor(diff / 60)}분 전`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}시간 전`;
+  return `${Math.floor(diff / 86400)}일 전`;
+}
+
 
 const COLORS = {
   primary: '#4CAF50',
@@ -21,12 +38,6 @@ const COLORS = {
   cardGreen: '#2ec757',
   cardLightGreen: '#90df99',
 };
-
-const SLIDER_CARDS = [
-  { type: 'main', time: '12분전', userName: '김아람샘', phone: '010.1234.1234', title: '수능기간 휴관 안내', active: true },
-  { type: 'sub', time: '1일전', userName: '김예나샘', phone: '010.5678.5678', title: '정기점검 공지', active: false },
-  { type: 'sub', time: '2일전', userName: '이철수샘', phone: '010.9012.9012', title: '학사 일정 변경', active: false },
-];
 
 const MEAL = {
   time: '아침',
@@ -45,7 +56,27 @@ const Home = () => {
   const [nameOnly, setNameOnly] = useState("");
   const [profileImage, setProfileImage] = useState("");
 
+  const [sliderCards, setSliderCards] = useState([]);
+
   const newSong = location.state?.newSong;
+
+  
+  useEffect(() => {
+    const sortedCards = [...noticeData]
+      .sort((a, b) => new Date(b.date) - new Date(a.date)) // 최신순
+      .slice(0, 10) // 최신 10개만
+      .map((n, idx) => ({
+        type: idx === 0 ? 'main' : 'sub',
+        time: getTimeAgo(n.date),
+        userName: n.name || '관리자',     // 공지마다 사감 이름
+        profileImage: n.profile || Profile, // 공지마다 사감 프로필
+        phone: n.phone || '010-0000-0000',
+        title: n.title,
+        active: idx === 0,
+        id: n.id,
+      }));
+    setSliderCards(sortedCards);
+  }, []);
 
   useEffect(() => {
     if (newSong && processedSongRef.current !== newSong) {
@@ -96,32 +127,36 @@ const Home = () => {
         </div>
       </header>
 
-      {/* Slider Section */}
-      <section className="sliderSection">
-        <div className="sliderWrapper" ref={sliderRef} onScroll={handleScroll}>
-          {SLIDER_CARDS.map((card, index) => (
-            <div className={`sliderCard ${card.active ? 'active' : ''}`} key={index}>
-              <p className="timeAgo">{card.time}</p>
-              <div className="userInfo">
-                <img src={profileImage || null} className="userAvatar" alt="user avatar"/>
-                <div className="userText">
-                  <p className="userName">{card.userName}</p>
-                  <p className="userPhone">{card.phone}</p>
-                </div>
-              </div>
-              <div className="cardTitle">
-                {card.title}
-                <span className="arrowIcon">〉</span>
+    {/* Slider Section */}
+    <section className="sliderSection">
+      <div className="sliderWrapper" ref={sliderRef} onScroll={handleScroll}>
+        {sliderCards.map((card, index) => (
+          <div className={`sliderCard ${card.active ? 'active' : ''}`} key={index}>
+            <p className="timeAgo">{card.time}</p>
+            <div className="userInfo">
+              <img src={card.profileImage || Profile} className="userAvatar" alt="user avatar" />
+              <div className="userText">
+                <p className="userName">{card.userName} 사감쌤</p>
+                <p className="userPhone">{card.phone}</p>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="paginationDots">
-          {SLIDER_CARDS.map((_, index) => (
-            <span key={index} className={`dot ${index === activeIndex ? 'active' : ''}`} />
-          ))}
-        </div>
-      </section>
+            <div className="cardTitle">
+              <span className="cardTitleText">{card.title}</span>
+              <span className="arrowIcon">〉</span>
+            </div>
+
+          </div>
+        ))}
+
+      </div>
+      {/* 하단 점(dot) 표시 */}
+      <div className="paginationDots">
+        {sliderCards.map((_, index) => (
+          <span key={index} className={`dot ${index === activeIndex ? 'active' : ''}`} />
+        ))}
+      </div>
+    </section>
+
 
       {/* Navigation Icons */}
       <nav className="navIcons">

@@ -67,7 +67,7 @@ const Meal = () => {
         const mealList = data.mealServiceDietInfo[1].row.map(item => {
           const rawKcal = item.NTR_INFO ? item.NTR_INFO : '0';
           const kcalMatch = rawKcal.match(/(\d+\.?\d*)/); 
-          const formattedKcal = kcalMatch ? `${kcalMatch[0]} Kcal` : "정보 없음";
+          const formattedKcal = kcalMatch ? `${kcalMatch[0]*10} Kcal` : "정보 없음";
 
           return {
             time: item.MMEAL_SC_NM, 

@@ -1,0 +1,68 @@
+.selectRoomContainer {
+  width: 100%;
+  max-width: 393px; /* 모바일 화면 기준 */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.selectRoomContainer h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.roomGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* 카드가 화면 폭에 맞게 자동 배치 */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.roomCard {
+  padding: 15px 0;
+  border-radius: 12px;
+  background-color: #F4F4F4;
+  color: #111;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.roomCard:hover {
+  background-color: #23D97B;
+  color: #FFF;
+  transform: translateY(-2px);
+}
+
+.roomCard.selected {
+  background-color: #23D97B;
+  color: #FFF;
+}
+
+.saveButton {
+  width: 100%;          /* 부모 폭에 맞춤 */
+  max-width: 393px;     /* 필요시 컨테이너 최대 폭 */
+  height: 50px;
+  background-color: #23D97B;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;       /* inline 기본값 제거 */
+}
+
+    
+.saveButton:hover {
+  background-color: #20c170;
+  transform: translateY(-2px);
+}
