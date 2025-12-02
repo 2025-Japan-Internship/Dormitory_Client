@@ -105,7 +105,7 @@ const Meal = () => {
       <header className="header">
         <div
           className="backButton"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
           style={{ backgroundImage: `url(${Back})` }}
         />
         <h1 className="pageTitle">오늘의 급식</h1>
