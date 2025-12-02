@@ -1,6 +1,6 @@
 .selectRoomContainer {
   width: 100%;
-  max-width: 393px; /* 모바일 화면 기준 */
+  max-width: 300px; /* 모바일 화면 기준 */
   margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;

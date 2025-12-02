@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Icon_back from '../assets/icon_back.png';
 import noticeData from "../data/notice.json"; // JSON 불러오기
-import Icon_back from '../assets/icon_back.png';
 import {
   Container, Header, BackBtn, Title, ScrollArea, ListBox, NoticeItem,
   ItemRow, NoticeTitle, NoticeDate, NewDot, BottomNav, NavBar, ConfirmButton, EditButton
 } from "./noticeList.styles";
 
-export const Container = styled.div`
+/*export const Container = styled.div`
   width: 393px;
   height: 898px;
   background: #ffffff;
@@ -17,6 +16,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
+*/
 
 
 export default function NoticeList() {

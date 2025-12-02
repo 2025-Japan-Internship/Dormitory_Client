@@ -39,7 +39,7 @@ export default function NoticeDetail() {
           <img
             src={notice.image}
             alt={notice.title}
-            style={{ width: "100%", marginBottom: "20px", borderRadius: "8px" }}
+            style={{ width: "100%", marginBottom: "20px"}}
           />
         )}
       </DetailContent>

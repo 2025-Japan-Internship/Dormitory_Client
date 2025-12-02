@@ -1,0 +1,168 @@
+/* 전체 페이지 */
+.qr-page {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+/* 상단 헤더 */
+.qr-page .header {
+  background: #ffffff;
+  padding: 16px 20px;
+  position: relative;
+  height: 80px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+/* 중앙 제목 */
+.qr-page .header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+
+  /* 중앙 배치 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 중앙 하단 QR 버튼 */
+.qr-container .floatingScanner {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: -210px; /* 화면 아래쪽에서 거리 */
+    left: 50%;
+    transform: translateX(-50%); /* 수평 중앙 */
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.qr-container .floatingScanner .scannerIcon {
+    width: 50px;  /* 기존보다 크게 */
+    height: 50px; /* 기존보다 크게 */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+
+/* 카메라 배경 */
+.camera-background {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* 블러 오버레이 */
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* QR 컨테이너 */
+.qr-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+}
+
+/* 스캔 프레임 */
+.scan-frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 20px;
+  background: transparent;
+  border-radius: 20px;
+  /* 중앙 부분만 투명하게 - 블러 제거 */
+  box-shadow: 
+    0 0 0 9999px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* 스캔 프레임 모서리 */
+.corner {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border: 9px solid #fff;
+  z-index: 11;
+}
+
+.corner-tl {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 20px 0 0 0;
+}
+
+.corner-tr {
+  top: -2px;
+  right: -2px;
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0 20px 0 0;
+}
+
+.corner-bl {
+  bottom: -2px;
+  left: -2px;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 20px;
+}
+
+.corner-br {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 20px 0;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: calc(100% - 3px);
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.scan-text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 30px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 11;
+}

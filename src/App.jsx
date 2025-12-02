@@ -9,8 +9,8 @@ import SuggestionPage from './pages/SuggestionPage';
 import SuggestionWritePage from './pages/SuggestionWritePage'; // 작성 페이지
 import NoticeList from "./pages/noticeList";
 import NoticeDetail from "./pages/noticeDetail";
-import noticedata from "./data/notice.json";
 import SelectRoom from "./pages/SelectRoom";
+import ScanQR from "./pages/scanQR";
 
 const App = () => {
   return (
@@ -24,6 +24,8 @@ const App = () => {
         <Route path="/suggestion/write" element={<SuggestionWritePage />} />
         <Route path="/noticeList" element={<NoticeList />} />
         <Route path="/notices/:id" element={<NoticeDetail />} />
+        <Route path="/scanQR" element={<ScanQR />} />
+        
       </Routes>
   );
 };
