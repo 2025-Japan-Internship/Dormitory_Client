@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Icon_back from '../assets/icon_back.png';
+import noticeData from "../data/notice.json"; // JSON 불러오기
+
 export const Container = styled.div`
   width: 393px;
   height: 898px;
@@ -52,18 +55,21 @@ export const NoticeDate = styled.p`
   margin: 6px 0 0 0;
 `;
 
-// NoticeList 컴포넌트
-export default function NoticeList({ notices }) {
+export default function NoticeList() {
   const navigate = useNavigate();
+  const [noticeList, setNoticeList] = useState([]);
 
-  // 더미 데이터
-  const noticeList = notices || [
-    { id: 1, title: "첫 번째 공지사항", date: "2025-12-02", content: "첫 번째 공지 내용입니다." },
-    { id: 2, title: "두 번째 공지사항", date: "2025-12-01", content: "두 번째 공지 내용입니다." },
-    { id: 3, title: "세 번째 공지사항", date: "2025-11-30", content: "세 번째 공지 내용입니다." },
-  ];
+  const sortedNotices = [...noticeData].sort(
+    (a, b) => new Date(b.date) - new Date(a.date) // 최신 순
+  );
+
+  useEffect(() => {
+    // JSON 데이터 불러오기
+    setNoticeList(noticeData);
+  }, []);
 
   const handleClick = (id) => {
+    // 클릭 시 상세페이지로 이동
     navigate(`/notices/${id}`);
   };
 
@@ -71,12 +77,12 @@ export default function NoticeList({ notices }) {
     <Container>
       <Header>
         <BackBtn onClick={() => navigate(-1)}>
-          <img src= {Icon_back} alt="뒤로가기" />
+          <img src={Icon_back} alt="뒤로가기" />
         </BackBtn>
         <Title>공지사항</Title>
       </Header>
 
-      {noticeList.map((n) => (
+      {sortedNotices.map((n) => (
         <NoticeItem key={n.id} onClick={() => handleClick(n.id)}>
           <NoticeTitle>{n.title}</NoticeTitle>
           <NoticeDate>{n.date}</NoticeDate>

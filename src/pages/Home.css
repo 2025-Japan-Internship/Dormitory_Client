@@ -150,16 +150,29 @@
   }
   
   .cardTitle {
+    display: flex;
+    justify-content: space-between; /* 텍스트 왼쪽, 화살표 오른쪽 */
+    align-items: center;
+    padding-top: 15px;
+    width: 100%;
+  }
+
+  .cardTitleText {
+    white-space: nowrap;      /* 한 줄만 표시 */
+    overflow: hidden;         /* 넘치는 텍스트 숨기기 */
     font-size: 18px;
     font-weight: bold;
     color: #FFF;
-    margin: auto 0 0 0;
-    padding-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-right: 8px;        /* 화살표와 간격 */
+    flex-shrink: 1;           /* 텍스트가 줄어들 수 있음 */
   }
-  
+
+  .arrowIcon {
+    flex-shrink: 0;           /* 화살표는 줄어들지 않음 */
+    color: #FFF;
+    font-size: 18px;
+  }
+
   .arrowIcon {
     font-size: 20px;
     font-weight: 700;
