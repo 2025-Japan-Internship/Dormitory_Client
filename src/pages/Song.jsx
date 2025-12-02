@@ -34,7 +34,7 @@ function Song(){
 
     const albumImg = await fetchAlbumArt(songTitle, songArtist);
 
-    navigate("/", {
+    navigate("/home", {
         state: {
           newSong: {
             title: songTitle,
@@ -50,10 +50,11 @@ function Song(){
       <header className="header">
         <div
           className="backButton"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
           style={{ backgroundImage: `url(${Back})` }}
         />
         <h1 className="pageTitle">기상송 신청</h1>
+        <div className="placeholder" style={{ width: 24, height: 24 }} />
       </header>
 
       <main className="contentArea">

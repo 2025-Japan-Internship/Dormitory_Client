@@ -11,7 +11,7 @@ import Morning from '../assets/morning.png';
 import Arrow from '../assets/arrow.png';
 import Qr from '../assets/qr.png';
 
-import './Home.css';
+import './Home.css'
 
 const COLORS = {
   primary: '#4CAF50',
@@ -132,14 +132,14 @@ const Home = () => {
           <p className="iconLabel">급식</p>
         </div>
 
-        <div className="navItem">
+        <div className="navItem" onClick={() => navigate("/noticeList")}>
           <div className="iconWrapper">
             <div className="postimg" style={{ backgroundImage: `url(${Post})` }} />
           </div>
           <p className="iconLabel">공지사항</p>
         </div>
 
-        <div className="navItem">
+        <div className="navItem" onClick={() => navigate("/suggestion")}>
           <div className="iconWrapper">
             <div className="suggestimg" style={{ backgroundImage: `url(${Suggest})` }} />
           </div>
@@ -158,7 +158,7 @@ const Home = () => {
       <section className="mealSection">
         <div className="sectionHeader">
           <p className="sectionTitle">오늘의 급식</p>
-          <div className="moreArrow" style={{ backgroundImage: `url(${Arrow})` }} />
+          <div className="moreArrow" style={{ backgroundImage: `url(${Arrow})` }} onClick={() => navigate("/meal")}/>
         </div>
         <div className="mealCard">
           <div className="mealTimeSection">
@@ -172,7 +172,7 @@ const Home = () => {
 
       {/* Music Section */}
       <section className="musicSection">
-        <h2>오늘의 기상송</h2>
+      <p className="sectionTitle">오늘의 기상송</p>
         <div className="musicList">
           {musicList.map((music, idx) => (
             <div className="musicCard" key={idx}>
