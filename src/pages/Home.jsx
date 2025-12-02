@@ -543,7 +543,7 @@ const Home = () => {
         </NavItem>
         
         {/* 2. 공지사항 */}
-        <NavItem>
+        <NavItem onClick={() => navigate("/noticeList")}>
           <IconWrapper>
             <Postimg></Postimg>
           </IconWrapper>

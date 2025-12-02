@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-
+import Icon_back from '../assets/icon_back.png';
 
 export const DetailContainer = styled.div`
   width: 393px;
@@ -65,38 +64,44 @@ export const DetailDate = styled.p`
 `;
 
 // NoticeDetail.jsx
-export default function NoticeDetail({ notices, markAsRead }) {
+export default function NoticeDetail({ notices }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const notice = notices.find((n) => n.id === Number(id));
+  // 더미 데이터
+  const noticeList = notices || [
+    { id: 1, title: "첫 번째 공지사항", date: "2025-12-02", content: "첫 번째 공지 내용입니다." },
+    { id: 2, title: "두 번째 공지사항", date: "2025-12-01", content: "두 번째 공지 내용입니다." },
+    { id: 3, title: "세 번째 공지사항", date: "2025-11-30", content: "세 번째 공지 내용입니다." },
+  ];
+
+  const notice = noticeList.find((n) => n.id === Number(id));
 
   if (!notice) return <div>존재하지 않는 공지입니다.</div>;
-
-  // 상세 페이지 렌더 시 점을 없애기
-  markAsRead(notice.id);
 
   return (
     <DetailContainer>
       <DetailHeader>
-        <BackBtn onClick={() => navigate(-1)}><img src="/icon_back.png" alt="뒤로가기" /></BackBtn>
+        <BackBtn onClick={() => navigate(-1)}>
+          <img src= {Icon_back} alt="뒤로가기" />
+        </BackBtn>
         <Title>공지사항</Title>
       </DetailHeader>
       <DetailContent>
-  <DetailTop>
-    <h2>{notice.title}</h2>
-    <DetailDate>{notice.date}</DetailDate>
-  </DetailTop>
-  <p>{notice.content}</p>
+        <DetailTop>
+          <h2>{notice.title}</h2>
+          <DetailDate>{notice.date}</DetailDate>
+        </DetailTop>
+        <p>{notice.content}</p>
 
-  {notice.image && (
-    <img
-      src={notice.image}
-      alt={notice.title}
-      style={{ width: "100%", marginBottom: "20px", borderRadius: "8px" }}
-    />
-  )}
-</DetailContent>
+        {notice.image && (
+          <img
+            src={notice.image}
+            alt={notice.title}
+            style={{ width: "100%", marginBottom: "20px", borderRadius: "8px" }}
+          />
+        )}
+      </DetailContent>
     </DetailContainer>
   );
 }

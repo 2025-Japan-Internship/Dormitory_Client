@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { useState } from "react";
-
+import Icon_back from '../assets/icon_back.png';
 export const Container = styled.div`
   width: 393px;
   height: 898px;
@@ -45,9 +44,6 @@ export const NoticeItem = styled.div`
 export const NoticeTitle = styled.div`
   font-size: 15px;
   color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 
 export const NoticeDate = styled.p`
@@ -56,40 +52,33 @@ export const NoticeDate = styled.p`
   margin: 6px 0 0 0;
 `;
 
-export const NewDot = styled.span`
-  width: 6px;
-  height: 6px;
-  background: #ff4444;
-  border-radius: 50%;
-  margin-left: 6px;
-`;
-
-
-
 // NoticeList 컴포넌트
 export default function NoticeList({ notices }) {
   const navigate = useNavigate();
-  const [noticeList, setNoticeList] = useState(notices);
+
+  // 더미 데이터
+  const noticeList = notices || [
+    { id: 1, title: "첫 번째 공지사항", date: "2025-12-02", content: "첫 번째 공지 내용입니다." },
+    { id: 2, title: "두 번째 공지사항", date: "2025-12-01", content: "두 번째 공지 내용입니다." },
+    { id: 3, title: "세 번째 공지사항", date: "2025-11-30", content: "세 번째 공지 내용입니다." },
+  ];
 
   const handleClick = (id) => {
-    // 클릭하면 isNew false로 변경
-    setNoticeList(noticeList.map(n => n.id === id ? {...n, isNew: false} : n));
-    navigate(`/notice/${id}`);
+    navigate(`/notices/${id}`);
   };
 
   return (
     <Container>
       <Header>
-        <BackBtn><img src="/icon_back.png" alt="뒤로가기" /></BackBtn>
+        <BackBtn onClick={() => navigate(-1)}>
+          <img src= {Icon_back} alt="뒤로가기" />
+        </BackBtn>
         <Title>공지사항</Title>
       </Header>
 
       {noticeList.map((n) => (
-        <NoticeItem key={n.id} onClick={() => navigate(`/notices/${n.id}`)}>
-          <NoticeTitle>
-            {n.title}
-            {n.isNew && <NewDot />}
-          </NoticeTitle>
+        <NoticeItem key={n.id} onClick={() => handleClick(n.id)}>
+          <NoticeTitle>{n.title}</NoticeTitle>
           <NoticeDate>{n.date}</NoticeDate>
         </NoticeItem>
       ))}

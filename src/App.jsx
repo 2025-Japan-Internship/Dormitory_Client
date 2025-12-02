@@ -15,7 +15,6 @@ import noticedata from "./data/notice.json";
 
 const App = () => {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/song" element={<Song />} />
         {/*<Route path="/Meal" element={<Meal />} />
@@ -24,10 +23,9 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/suggestion" element={<SuggestionPage />} />
         <Route path="/suggestion/write" element={<SuggestionWritePage />} />
-        <Route path="/notices" element={<NoticeList notices={noticedata} />} />
-        <Route path="/notices/:id" element={<NoticeDetail notices={notices} markAsRead={markAsRead} />} />
+        <Route path="/noticeList" element={<NoticeList />} />
+        <Route path="/notices/:id" element={<NoticeDetail />} />
       </Routes>
-    </BrowserRouter>
   );
 };
 
