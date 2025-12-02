@@ -8,6 +8,9 @@ import {
 // NoticeDetail.jsx
 export default function NoticeDetail({ notices }) {
   const { id } = useParams();
+
+
+  
   const navigate = useNavigate();
 
   // 더미 데이터

@@ -55,6 +55,13 @@ export const DetailTop = styled.div`
 `;
 
 
+
+
+
+
+
+
+
  
 export const DetailDate = styled.p`
   font-size: 13px;

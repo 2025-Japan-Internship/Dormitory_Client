@@ -29,13 +29,13 @@ export default function NoticeList({ notices }) {
         <Title>공지사항</Title>
       </Header>
 
+
       <ScrollArea>
         <ListBox>
           {noticeList.map((n, idx) => (
             <NoticeItem key={n.id} onClick={() => handleClick(n.id)} isLast={idx === noticeList.length - 1}>
               <ItemRow>
                 <NoticeTitle>{n.title}</NoticeTitle>
-                
               </ItemRow>
               <NoticeDate>{n.date}</NoticeDate>
             </NoticeItem>
