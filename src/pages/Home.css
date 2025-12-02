@@ -11,6 +11,7 @@
     padding-top: 24px;
     padding-left: 16px;
     padding-bottom: 24px;
+    position: static;
   }
   
   .headerment {
