@@ -59,10 +59,10 @@ export default function SelectRoom() {
         <button onClick={handleSelectRoom} className="saveButton">
             계속하기
         </button>
-        {/*<button onClick={async () => {
+        <button onClick={async () => {
             await supabase.auth.signOut();
             console.log("로그아웃 완료");
-        }}>로그아웃</button>*/}
+        }}>로그아웃</button>
     </div>
   )
 }
