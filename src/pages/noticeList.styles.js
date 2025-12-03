@@ -80,53 +80,8 @@ export const NoticeDate = styled.p`
   margin: 0;
 `
 
-export const NewDot = styled.span`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ff4444;
-  margin-top: 6px;
-  flex-shrink: 0;
-`
 
-export const BottomNav = styled.div`
-  height: 70px;
-  background: #ffffff;
-  border-top: 1px solid #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 0 20px;
-`
 
-export const NavBar = styled.div`
-  width: 134px;
-  height: 5px;
-  background: #333;
-  border-radius: 100px;
-`
 
-export const ConfirmButton = styled.button`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: #00c853;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
 
-export const EditButton = styled.button`
-  width: 24px;
-  height: 24px;
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 20px;
-  cursor: pointer;
-`
+
