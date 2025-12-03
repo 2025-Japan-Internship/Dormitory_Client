@@ -57,8 +57,6 @@ const Meal = () => {
     try {
       const API_KEY = "54bf68e058c145038edde0ea0e7e3ab2";
       const SCHOOL_CODE = "7011569";
-      
-      
 
       const url = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${API_KEY}&Type=json&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=${SCHOOL_CODE}&MLSV_YMD=${dateString}`;
 

@@ -51,6 +51,7 @@
   margin-bottom: 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background-color: #ffffff;
 }
 
 .day-tabs-container::-webkit-scrollbar {
