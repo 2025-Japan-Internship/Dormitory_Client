@@ -17,6 +17,8 @@ export const Header = styled.header`
   align-items: center;
   border-bottom: 1px solid #e0e0e0;
   position: relative;
+  height: 80px !important; 
+  border-bottom: #f4f4f4;
 `;
 
 export const BackBtn = styled.button`
@@ -31,11 +33,13 @@ export const BackBtn = styled.button`
 `;
 
 export const Title = styled.h1`
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
   color: #333;
 `;
+
+
 
 export const ScrollArea = styled.main`
   flex: 1;
@@ -79,9 +83,17 @@ export const NoticeDate = styled.p`
   color: #999;
   margin: 0;
 `
-
-
-
-
-
+export const ConfirmButton = styled.button`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #00c853;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`; 
 

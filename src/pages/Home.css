@@ -1,16 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
     width: 393px;
-    height: 1018px;
+    height: 852px;
+    margin: 0;
+    background-color: #F4F4F4 !important;
   }
   
   .header {
+    height: 100px !important;
     display: flex;
     align-items: center;
     background-color: #ffffff;
     justify-content: space-between;
-    padding-top: 24px;
-    padding-left: 16px;
-    padding-bottom: 24px;
+    padding-top: 20px !important;
+    padding-left: 16px !important;
+    padding-bottom: 16px !important;
+    position: sticky;
+    font-size: 24px;
+    border-bottom: none !important;
+
   }
   
   .headerment {
@@ -18,10 +30,10 @@
     height: 60px;
   }
   
-  .name {
+  .titleName {
     color: #23D97B;
     font-family: "SF Pro";
-    font-size: 24px;
+    font-size: 24px !important;
     font-style: normal;
     font-weight: 700;
     line-height: 30px;
@@ -67,7 +79,6 @@
     padding: 15px;
     padding-bottom: 5px;
     background-color: #ffffff;
-    margin-bottom: 30px;
   }
   
   .sliderWrapper {
@@ -96,15 +107,20 @@
     background: linear-gradient(150deg, #23D97B 12.39%, #23D9A5 87.61%);
     display: flex;
     flex-direction: column;
+    
+    transition: all 0.3s ease;
+    opacity: 0.5; /* 기본은 투명하게 */
+  }
+  .sliderCard.active {
+    opacity: 1; /* 활성 카드만 불투명 */
   }
   
   .timeAgo {
     font-size: 12px;
-    font-weight: bold;
-    color: #23D97B;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.15);
     padding: 4px 8px;
-    border-radius: 8px;
+    border-radius: 15px;
     margin: 0 0 15px 0;
     width: fit-content;
   }
@@ -150,16 +166,29 @@
   }
   
   .cardTitle {
+    display: flex;
+    justify-content: space-between; /* 텍스트 왼쪽, 화살표 오른쪽 */
+    align-items: center;
+    padding-top: 15px;
+    width: 100%;
+  }
+
+  .cardTitleText {
+    white-space: nowrap;      /* 한 줄만 표시 */
+    overflow: hidden;         /* 넘치는 텍스트 숨기기 */
     font-size: 18px;
     font-weight: bold;
     color: #FFF;
-    margin: auto 0 0 0;
-    padding-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-right: 8px;        /* 화살표와 간격 */
+    flex-shrink: 1;           /* 텍스트가 줄어들 수 있음 */
   }
-  
+
+  .arrowIcon {
+    flex-shrink: 0;           /* 화살표는 줄어들지 않음 */
+    color: #FFF;
+    font-size: 18px;
+  }
+
   .arrowIcon {
     font-size: 20px;
     font-weight: 700;
@@ -186,24 +215,32 @@
   }
   
   .navIcons {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-top: 0;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    padding: 15px 10px;
     background-color: #ffffff;
-    margin-top: 10px;
   }
+
   
   .navItem {
+    margin-top: 10px;
+    margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    height:80px;
   }
   
+  .iconLabel{
+    margin-top: 0px;
+  }
   .iconWrapper {
     width: 50px;
-    height: 50px;
+    height: 30px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -215,8 +252,8 @@
   .postimg,
   .suggestimg,
   .morningimg {
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -230,12 +267,14 @@
   
   .sectionHeader {
     display: flex;
-    width: 353px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
   }
   
   .sectionTitle {
+    margin-top: 0;
+    margin-left: 5px;
     color: #444;
     font-family: "SF Pro";
     font-size: 21px;
@@ -248,6 +287,7 @@
     display: flex;
     width: 25px;
     height: 25px;
+    margin-bottom: 20px;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -262,9 +302,8 @@
     width: 100%;
     max-width: 361px;
     border-radius: 12px;
-    border: 0.08px solid #CCC;
     background: #FFF;
-    padding: 18px 20px 24px 24px;
+    padding: 5px 20px 10px 24px;
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
   }
@@ -274,6 +313,7 @@
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
+    margin-bottom: -20px;
   }
   
   .timeText {
@@ -331,6 +371,13 @@
     padding-bottom: 10px;
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    /* 추가 */
+    min-height: 120px;        /* 항목 없어도 일정 높이 유지 */
+    background-color: #ffffff; /* 연한 배경 */
+    border-radius: 10px;       /* 둥근 모서리 */
+    padding: 10px;             /* 안쪽 여백 */
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.05);
   }
   
   .musicList::-webkit-scrollbar {

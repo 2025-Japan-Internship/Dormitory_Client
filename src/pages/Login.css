@@ -1,0 +1,85 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+.loginContainer {
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  background-color: #23D97B;
+  position: relative;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.loginText {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.loginContainer h1 {
+  color: #FFF;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.loginContainer p {
+  color: #fff;
+  font-size: 12px;
+  margin: 5px 0 0;
+  text-align: center;
+  font-weight: 300;
+}
+
+.loginButton {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: calc(100% - 40px);
+  max-width: 353px;
+  padding: 16px 0;
+
+  background-color: #fff;
+  color: #111;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loginButton:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.loginButton img {
+  width: 20px;
+  height: 20px;
+}

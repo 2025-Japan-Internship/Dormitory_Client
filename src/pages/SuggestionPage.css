@@ -10,10 +10,11 @@
 /* 상단 바 */
 .header {
     background-color: #fff;       /* 헤더만 흰색 */
-    display: flex;
+    display: flex; 
     justify-content: space-between;
     align-items: center;
-    height: 70px; 
+    height: 80px !important; 
+    border-bottom: #f4f4f4;
     padding: 0 10px;
     position: sticky;             /* sticky로 고정 */
     top: 0;                       /* 상단 기준 */

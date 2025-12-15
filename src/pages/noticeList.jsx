@@ -5,7 +5,7 @@ import Icon_back from '../assets/icon_back.png';
 import noticeData from "../data/notice.json"; // JSON 불러오기
 import {
   Container, Header, BackBtn, Title, ScrollArea, ListBox, NoticeItem,
-  ItemRow, NoticeTitle, NoticeDate, NewDot, BottomNav, NavBar, ConfirmButton, EditButton
+  ItemRow, NoticeTitle, NoticeDate
 } from "./noticeList.styles";
 
 /*export const Container = styled.div`
@@ -47,6 +47,7 @@ export default function NoticeList() {
       </Header>
       <ScrollArea>
       <ListBox>
+
       {sortedNotices.map((n) => (
         <NoticeItem key={n.id} onClick={() => handleClick(n.id)}>
           <NoticeTitle>{n.title}</NoticeTitle>

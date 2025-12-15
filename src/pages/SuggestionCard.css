@@ -33,13 +33,15 @@
 
 
 .name {
+    color: #444444;
     margin-top: 5px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 14px !important;
+    margin-bottom: 0 !important;
 }
 
 .time {
-    margin-top: 0;
+    margin-top: -5px;
     font-size: 12px;
     color: #aaa;
 }
