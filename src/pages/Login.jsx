@@ -53,14 +53,15 @@ export default function Login() {
   return (
 
     <div className="loginContainer">
-
-      <h1>로그인</h1>
-
+      <div className="loginText">
+        <h1>DOTORI</h1>
+        <p>기숙사를 더 편안하고 편리하게</p>
+      </div>
       <button onClick={loginWithGoogle} className="loginButton">
-
-        구글 계정으로 로그인
-
+        <img src="google.svg" alt="google logo" />
+        <span>구글로 시작하기</span>
       </button>
+
 
     </div>
 

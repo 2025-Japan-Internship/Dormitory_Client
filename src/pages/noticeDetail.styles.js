@@ -52,7 +52,7 @@ export const DetailTop = styled.div`
     font-size: 18px;
     margin-bottom: 12px;
   }
-`;
+`
 
 
 
