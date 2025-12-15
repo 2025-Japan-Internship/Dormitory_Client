@@ -104,7 +104,7 @@ export default function SelectRoom() {
                 }}
             >
                 <span>{selectedRoom ? `${selectedRoom}호` : "기숙사 호실을 선택해주세요."}</span>
-                <span className="dropdownArrow">▼</span>
+                <span className="dropdownArrow"><img src="arrow.svg" alt="화살표" width="12px" height="12px" /></span>
             </div>
             
             {isDropdownOpen && (

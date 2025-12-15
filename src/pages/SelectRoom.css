@@ -21,23 +21,25 @@
 }
 
 .floorTab {
+  width: 113px;
+  height: 65px;
   flex: 1;
   padding: 12px 0;
-  border-radius: 10px;
-  background-color: #F4F4F4;
-  color: #999;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
   font-size: 16px;
-  font-weight: 600;
   text-align: center;
   cursor: pointer;
-  border: none;
+  border: 1px solid #ccc;
   transition: all 0.2s;
 }
 
 .floorTab.active {
-  background-color: #E6F9F1;
-  color: #23D97B;
+  background-color: #fff;
   border: 2px solid #23D97B;
+  box-shadow: 0 4px 12px rgba(35,217,123,25%);
+
 }
 
 .dropdownContainer {
@@ -48,7 +50,7 @@
 .dropdownHeader {
   width: 91%;
   padding: 16px;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #000;
   border-radius: 10px;
   background-color: #FFF;
   display: flex;
@@ -56,12 +58,11 @@
   align-items: center;
   cursor: pointer;
   font-size: 16px;
-  color: #999;
+  color: #000;
 }
 
 .dropdownArrow {
-  font-size: 12px;
-  color: #999;
+  color: #000;
 }
 
 .dropdownList {
@@ -73,10 +74,16 @@
   background-color: #FFF;
   border: 1px solid #E0E0E0;
   border-radius: 10px;
-  max-height: 300px;
-  overflow-y: auto;
+  max-height: 240px;
+  overflow-y: overlay;
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.dropdownList::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-right: 12px; 
 }
 
 .dropdownItem {
@@ -85,17 +92,43 @@
   font-size: 16px;
   color: #111;
   transition: background 0.2s;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
 }
 
 .dropdownItem:hover {
-  background-color: #F8F8F8;
+  background-color: #23D97B 20%;
 }
 
 .dropdownItem.selected {
   background-color: #E6F9F1;
-  color: #23D97B;
-  font-weight: 600;
 }
+
+/* 스크롤바 전체 */
+.dropdownList::-webkit-scrollbar {
+  width: 4px;              /* ← 얇게 */
+}
+
+/* 스크롤바 배경 (흰색 제거) */
+.dropdownList::-webkit-scrollbar-track {
+  background: transparent; /* ← 완전 투명 */
+  margin: 8px;        /* ← 스크롤바와 내용 사이 여백 */
+}
+
+/* 스크롤바 바 */
+.dropdownList::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* 연한 색 */
+  border-radius: 10px;
+}
+
+/* 스크롤바 화살표 제거 */
+.dropdownList::-webkit-scrollbar-button {
+  display: none;
+}
+
 
 .saveButton {
   position: absolute;
