@@ -99,7 +99,7 @@ const Home = () => {
         setProfileImage(profilePic);
       }
     };
-
+  
     loadUser();
   }, []);
 
