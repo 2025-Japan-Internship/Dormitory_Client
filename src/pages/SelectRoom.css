@@ -1,68 +1,124 @@
 .selectRoomContainer {
   width: 100%;
-  max-width: 300px; /* 모바일 화면 기준 */
+  max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
 .selectRoomContainer h1 {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
   color: #111;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.floorTabs {
   display: flex;
-  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
-.roomGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* 카드가 화면 폭에 맞게 자동 배치 */
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.roomCard {
-  padding: 15px 0;
-  border-radius: 12px;
+.floorTab {
+  flex: 1;
+  padding: 12px 0;
+  border-radius: 10px;
   background-color: #F4F4F4;
-  color: #111;
-  font-size: 18px;
+  color: #999;
+  font-size: 16px;
   font-weight: 600;
   text-align: center;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border: none;
+  transition: all 0.2s;
 }
 
-.roomCard:hover {
-  background-color: #23D97B;
-  color: #FFF;
-  transform: translateY(-2px);
+.floorTab.active {
+  background-color: #E6F9F1;
+  color: #23D97B;
+  border: 2px solid #23D97B;
 }
 
-.roomCard.selected {
-  background-color: #23D97B;
-  color: #FFF;
+.dropdownContainer {
+  position: relative;
+  margin-bottom: 200px;
+}
+
+.dropdownHeader {
+  width: 91%;
+  padding: 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  background-color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #999;
+}
+
+.dropdownArrow {
+  font-size: 12px;
+  color: #999;
+}
+
+.dropdownList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  background-color: #FFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dropdownItem {
+  padding: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #111;
+  transition: background 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #F8F8F8;
+}
+
+.dropdownItem.selected {
+  background-color: #E6F9F1;
+  color: #23D97B;
+  font-weight: 600;
 }
 
 .saveButton {
-  width: 100%;          /* 부모 폭에 맞춤 */
-  max-width: 393px;     /* 필요시 컨테이너 최대 폭 */
-  height: 50px;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: calc(100% - 40px);
+  max-width: 353px;
+  height: 54px;
+
   background-color: #23D97B;
   color: #fff;
+
   border: none;
   border-radius: 12px;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 20px;
-  display: block;       /* inline 기본값 제거 */
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-    
 .saveButton:hover {
   background-color: #20c170;
-  transform: translateY(-2px);
 }
