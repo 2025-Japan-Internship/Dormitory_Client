@@ -19,7 +19,7 @@ export default function Login() {
       if (session) {
 
         console.log("세션 있음");
-
+        if (session) navigate("/home");
         //supabase.auth.signOut(); // 테스트용 로그아웃
 
       }
