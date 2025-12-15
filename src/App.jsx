@@ -1,19 +1,10 @@
-
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Song from './pages/Song';
-import Home from './pages/Home';
-import Meal from './pages/Meal';
-import Login from "./pages/Login";
-import SuggestionPage from './pages/SuggestionPage';
-import SuggestionWritePage from './pages/SuggestionWritePage'; // 작성 페이지
-import NoticeList from "./pages/noticeList";
-import NoticeDetail from "./pages/noticeDetail";
-import SelectRoom from "./pages/SelectRoom";
-import ScanQR from "./pages/scanQR";
+import { HashRouter, Routes, Route } from 'react-router-dom';
+// BrowserRouter 대신 HashRouter 사용
 
 const App = () => {
   return (
+    <HashRouter>
       <Routes>
         <Route path="/song" element={<Song />} />
         <Route path="/meal" element={<Meal />} />
@@ -25,9 +16,9 @@ const App = () => {
         <Route path="/noticeList" element={<NoticeList />} />
         <Route path="/notices/:id" element={<NoticeDetail />} />
         <Route path="/scanQR" element={<ScanQR />} />
-        
       </Routes>
+    </HashRouter>
   );
 };
 
-export default App; 
+export default App;
