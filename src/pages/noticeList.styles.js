@@ -11,7 +11,6 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   background: #ffffff;
-  padding: 16px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +18,7 @@ export const Header = styled.header`
   position: relative;
   height: 80px !important; 
   border-bottom: #f4f4f4;
+  position: sticky;  
 `;
 
 export const BackBtn = styled.button`
@@ -41,12 +41,6 @@ export const Title = styled.h1`
 
 
 
-
-
-
-
-
-
 export const ScrollArea = styled.main`
   flex: 1;
   overflow-y: auto;
@@ -54,26 +48,26 @@ export const ScrollArea = styled.main`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`
 
 export const ListBox = styled.div`
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-`;
+`
 
 export const NoticeItem = styled.div`
   padding: 18px 20px;
   border-bottom: ${(props) => (props.isLast ? "none" : "1px solid #f0f0f0")};
   cursor: pointer;
-`;
+`
 
 export const ItemRow = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 6px;
-`;
+`
 
 export const NoticeTitle = styled.h3`
   font-size: 14px;
@@ -82,41 +76,13 @@ export const NoticeTitle = styled.h3`
   margin: 0;
   line-height: 1.5;
   flex: 1;
-`;
+`
 
 export const NoticeDate = styled.p`
   font-size: 12px;
   color: #999;
   margin: 0;
-`;
-
-export const NewDot = styled.span`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ff4444;
-  margin-top: 6px;
-  flex-shrink: 0;
-`;
-
-export const BottomNav = styled.div`
-  height: 70px;
-  background: #ffffff;
-  border-top: 1px solid #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 0 20px;
-`;
-
-export const NavBar = styled.div`
-  width: 134px;
-  height: 5px;
-  background: #333;
-  border-radius: 100px;
-`;
-
+`
 export const ConfirmButton = styled.button`
   width: 48px;
   height: 48px;
@@ -131,12 +97,3 @@ export const ConfirmButton = styled.button`
   justify-content: center;
 `; 
 
-export const EditButton = styled.button`
-  width: 24px;
-  height: 24px;
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 20px;
-  cursor: pointer;
-`;

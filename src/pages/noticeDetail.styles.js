@@ -9,12 +9,15 @@ export const DetailContainer = styled.div`
 
 export const DetailHeader = styled.header`
   background: #ffffff;
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f0f0;
+  padding-top: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #e0e0e0;
   position: relative;
+  height: 80px !important; 
+  border-bottom: #f4f4f4;
+  position: sticky;  
 `;
 
 export const BackBtn = styled.button`
@@ -24,12 +27,15 @@ export const BackBtn = styled.button`
   border: none;
   font-size: 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 export const Title = styled.h1`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
+  color: #333;
 `;
 
 export const DetailContent = styled.main`
@@ -52,7 +58,7 @@ export const DetailTop = styled.div`
     font-size: 18px;
     margin-bottom: 12px;
   }
-`;
+`
 
 
 
