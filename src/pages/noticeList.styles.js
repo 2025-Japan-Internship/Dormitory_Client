@@ -11,7 +11,6 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   background: #ffffff;
-  padding: 16px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +18,7 @@ export const Header = styled.header`
   position: relative;
   height: 80px !important; 
   border-bottom: #f4f4f4;
+  position: sticky;  
 `;
 
 export const BackBtn = styled.button`

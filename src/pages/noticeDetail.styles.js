@@ -8,13 +8,14 @@ export const DetailContainer = styled.div`
 `;
 
 export const DetailHeader = styled.header`
+  height: 80px;
   background: #ffffff;
   padding: 16px 20px;
   border-bottom: 1px solid #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  position: sticky;
 `;
 
 export const BackBtn = styled.button`
