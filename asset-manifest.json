@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Dormitory_Client/static/css/main.538a1a73.css",
-    "main.js": "/Dormitory_Client/static/js/main.204a3a80.js",
+    "main.js": "/Dormitory_Client/static/js/main.d27dc97d.js",
     "index.html": "/Dormitory_Client/index.html",
     "main.538a1a73.css.map": "/Dormitory_Client/static/css/main.538a1a73.css.map",
-    "main.204a3a80.js.map": "/Dormitory_Client/static/js/main.204a3a80.js.map"
+    "main.d27dc97d.js.map": "/Dormitory_Client/static/js/main.d27dc97d.js.map"
   },
   "entrypoints": [
     "static/css/main.538a1a73.css",
-    "static/js/main.204a3a80.js"
+    "static/js/main.d27dc97d.js"
   ]
 }
