@@ -1,6 +1,6 @@
 .screenContainer {
     width: 393px;
-    height: 898px;
+    height: 852px;
   }
   
   /* Header */
@@ -55,7 +55,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-top: 0;
   }
   
   /* InputLabel1 */
@@ -82,11 +81,13 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin-top: 7px;
   }
   
   /* Footer */
   .footer {
-    padding: 20px;
+    padding: 0;
+    padding-left: 14px;
     width: 100%;
     box-sizing: border-box;
     background-color: #ffffff;

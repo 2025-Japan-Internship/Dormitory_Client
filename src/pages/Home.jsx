@@ -126,38 +126,50 @@ const Home = () => {
   }, []);
 
   //시간에 맞는 급식 불러오기
-  useEffect(() => {
-    const fetchMeal = async () => {
-      const today = new Date();
-      const yyyy = today.getFullYear();
-      const mm = String(today.getMonth() + 1).padStart(2, '0');
-      const dd = String(today.getDate()).padStart(2, '0');
-      const dateString = `${yyyy}${mm}${dd}`;
+useEffect(() => {
+  const fetchMeal = async () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const dateString = `${yyyy}${mm}${dd}`;
 
-      const url = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${API_KEY}&Type=json&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=${SCHOOL_CODE}&MLSV_YMD=${dateString}`;
+    const url = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${API_KEY}&Type=json&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=${SCHOOL_CODE}&MLSV_YMD=${dateString}`;
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
 
-        // 데이터가 있으면 첫 번째 급식 정보 사용
-        if (data.mealServiceDietInfo) {
-          const mealData = data.mealServiceDietInfo[1].row[0];
-          setMeal({
-            time: mealData.MMEAL_SC_NM || "오늘", // 조식/중식/석식
-            menu: mealData.DDISH_NM.replace(/\d+\./g, "").replace(/<br\/>/g, ", "),
-          });
-        } else {
-          setMeal({ time: "오늘", menu: "급식 정보가 없습니다." });
-        }
-      } catch (error) {
-        console.error("급식 API 오류:", error);
-        setMeal({ time: "오늘", menu: "급식 정보를 가져올 수 없습니다." });
+      if (data.mealServiceDietInfo) {
+        const mealData = data.mealServiceDietInfo[1].row[0];
+
+        setMeal({
+          time: mealData.MMEAL_SC_NM || "오늘",
+          menu: mealData.DDISH_NM
+            .replace(/\d+\./g, "")
+            .replace(/<br\/>/g, ", "),
+          kcal: mealData.CAL_INFO || "칼로리 정보 없음",
+        });
+      } else {
+        setMeal({
+          time: "오늘",
+          kcal: "",
+          menu: "급식 정보가 없습니다.",
+        });
       }
-    };
+    } catch (error) {
+      console.error("급식 API 오류:", error);
+      setMeal({
+        time: "오늘",
+        menu: "급식 정보를 가져올 수 없습니다.",
+        kcal: "",
+      });
+    }
+  };
 
-    fetchMeal();
-  }, []);
+  fetchMeal();
+}, []);
+
 
   const handleScroll = () => {
     const slider = sliderRef.current;
@@ -273,6 +285,7 @@ const Home = () => {
               <p className="timeText">{meal.time}</p>
               <span className="todayBadge">오늘</span>
             </div>
+            <p className="kcalText">{meal.kcal}</p>
             <p className="menuText">{meal.menu}</p>
           </div>
         </section>

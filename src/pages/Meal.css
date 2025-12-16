@@ -47,7 +47,7 @@
 .day-tabs-container {
   overflow-x: scroll;
   white-space: nowrap;
-  padding: 0 0 20px 0;
+  padding: 0 0 0 0;
   margin-bottom: 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -59,7 +59,8 @@
 
 .day-tabs-wrapper {
   display: flex;
-  padding: 0 20px;
+  padding: 10px 6px 30px;
+  background-color: #fff;
 }
 
 .day-tab {
