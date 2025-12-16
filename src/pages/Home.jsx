@@ -190,7 +190,7 @@ useEffect(() => {
           <p className="greeting">오늘 하루도 힘내세요</p>
         </div>
         <div className="headerIcons">
-          <img src={Bell} alt="bell" className="notificationBell" />
+          {/*<img src={Bell} alt="bell" className="notificationBell" />*/}
           <img
             src={profile?.avatarUrl || Profile}
             alt="Profile"

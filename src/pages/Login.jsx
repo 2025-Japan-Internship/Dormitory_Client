@@ -41,7 +41,7 @@ export default function Login() {
         <p>기숙사를 더 편안하고 편리하게</p>
       </div>
       <button onClick={loginWithGoogle} className="loginButton">
-        <img src="google.svg" alt="google logo" />
+        <img src="/Dormitory_Client/google.svg" alt="google logo" />
         <span>구글로 시작하기</span>
       </button>
     </div>

@@ -12,7 +12,7 @@ import NoticeDetail from "./pages/noticeDetail";
 import SelectRoom from "./pages/SelectRoom";
 import ScanQR from "./pages/scanQR";
 import Mypage from "./pages/Mypage";
-import EditInformation from './pages/EditInformation';
+import EditrInformation from './pages/EditInformation';
 
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/notices/:id" element={<NoticeDetail />} />
         <Route path="/scanQR" element={<ScanQR />} />
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/edit" element={<EditInformation />} />
+        <Route path="/edit" element={<EditrInformation />} />
       </Routes>
   );
 };
