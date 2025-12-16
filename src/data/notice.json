@@ -3,19 +3,19 @@
         "id": 1,
         "name": "김이박",
         "phone": "010-1234-1234",
-        "profile": "/sagam1.png",
+        "profile": "/Dormitory_Client/sagam1.png",
         "title": "[공지]수능기간 기숙사 휴관 안내",
         "date" : "2025.12.01", 
         "isNew": true,
         "content": "안녕하세요.\n\n수능 기간 동안 기숙사 휴관 일정을 안내드립니다.\n\n휴관 기간: 2025년 11월 13일 ~ 11월 14일\n\n해당 기간 동안 기숙사 출입이 제한되오니 참고 부탁드립니다.\n\n감사합니다.", 
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     }
 
     ,{
         "id": 2, 
         "name": "김이박",
         "phone": "010-1234-1234",
-        "profile": "/sagam1.png",
+        "profile": "/Dormitory_Client/sagam1.png",
         "title": "[공지]11월 기숙사 정기점검 안내", 
         "date": "2025.11.28",
         "isNew": false, 
@@ -27,43 +27,42 @@
         "id": 3, 
         "name": "최미림",
         "phone": "010-5678-5678",
-        "profile": "/sagam2.png",
         "title": "[공지]기숙사 내 음식물 반입",
         "date": "2025.11.17",
         "isNew": false,
         "content": "안녕하세요.\n\n기숙사 내 음식물 반입 관련 안내드립니다.\n\n반입 금지 품목:\n- 냄새가 강한 음식\n- 조리가 필요한 날음식\n- 주류\n\n위생적이고 쾌적한 환경을 위해 협조 부탁드립니다.\n\n감사합니다.",
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     },
     
     { 
         "id": 4,
         "name": "김이박",
         "phone": "010-1234-1234",
-        "profile": "/sagam1.png",
+        "profile": "/Dormitory_Client/sagam1.png",
         "title": "[공지]수능기간 기숙사 휴관 안내", 
         "date": "2025.11.12", 
         "isNew": false,
         "content":"안녕하세요.\n\n수능 기간 동안 기숙사 휴관 일정을 안내드립니다.\n\n휴관 기간: 2025년 11월 13일 ~ 11월 14일\n\n해당 기간 동안 기숙사 출입이 제한되오니 참고 부탁드립니다.\n\n감사합니다.",
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     }, 
     
     {
         "id": 5,
         "name": "최미림",
         "phone": "010-5678-5678",
-        "profile": "/sagam2.png",
+        "profile": "/Dormitory_Client/sagam2.png",
         "title": "[공지]11월 기숙사 정기점검 안내",
         "date": "2025.11.08", 
         "isNew": false, 
         "content": "안녕하세요.\n\n11월 정기점검 일정을 안내드립니다.\n\n점검 일시: 2025년 11월 15일 14:00 ~ 17:00\n\n점검 내용:\n- 소화기 점검\n- 전기 시설 점검\n- 수도 시설 점검\n\n안전한 생활환경을 위해 협조 부탁드립니다.\n\n감사합니다." ,
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     },
     
     { 
         "id": 6,
         "name": "김이박",
         "phone": "010-1234-1234",
-        "profile": "/sagam1.png",
+        "profile": "/Dormitory_Client/sagam2.png",
         "title": "[공지]기숙사 내 음식물 반입",
         "date": "2025.11.01",
         "isNew": false,
@@ -75,31 +74,31 @@
         "id": 7,
         "name": "최미림",
         "phone": "010-5678-5678",
-        "profile": "/sagam2.png",
+        "profile": "/Dormitory_Client/sagam2.png",
         "title": "[공지]수능기간 기숙사 휴관 안내",
         "date": "2025.10.07",
         "isNew": false,
         "content": "안녕하세요.\n\n수능 기간 동안 기숙사 휴관 일정을 안내드립니다.\n\n휴관 기간: 2025년 11월 13일 ~ 11월 14일\n\n해당 기간 동안 기숙사 출입이 제한되오니 참고 부탁드립니다.\n\n감사합니다.",
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     }, 
     
     { 
         "id": 8,
         "name": "김이박",
         "phone": "010-1234-1234",
-        "profile": "/sagam1.png",
+        "profile": "/Dormitory_Client/sagam1.png",
         "title": "[공지]11월 기숙사 정기점검 안내",
         "date": "2025.10.02",
         "isNew": false,
         "content": "안녕하세요.\n\n11월 정기점검 일정을 안내드립니다.\n\n점검 일시: 2025년 11월 15일 14:00 ~ 17:00\n\n점검 내용:\n- 소화기 점검\n- 전기 시설 점검\n- 수도 시설 점검\n\n안전한 생활환경을 위해 협조 부탁드립니다.\n\n감사합니다.",
-        "image": "/notice.png" 
+        "image": "/Dormitory_Client/notice.png"
     },
     
     { 
         "id": 9,
         "name": "최미림",
         "phone": "010-5678-5678",
-        "profile": "/sagam2.png",
+        "profile": "/Dormitory_Client/sagam2.png",
         "title": "[공지]기숙사 내 음식물 반입",
         "date": "2025.10.01",
         "isNew": false, 
@@ -110,21 +109,21 @@
         "id": 10,
         "name": "최미림",
         "phone": "010-5678-5678",
-        "profile": "/sagam2.png",
+        "profile": "/Dormitory_Client/sagam2.png",
         "title": "[공지]기숙사 내 음식물 반입",
         "date": "2025.09.01",
         "isNew": false, 
         "content": "안녕하세요.\n\n기숙사 내 음식물 반입 관련 안내드립니다.\n\n반입 금지 품목:\n- 냄새가 강한 음식\n- 조리가 필요한 날음식\n- 주류\n\n위생적이고 쾌적한 환경을 위해 협조 부탁드립니다.\n\n감사합니다.",
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     },
     { 
         "id": 11,
         "name": "최미림",
-        "profile": "/sagam2.png",
+        "profile": "/Dormitory_Client/sagam2.png",
         "title": "[공지]기숙사 내 음식물 반입",
         "date": "2025.09.08",
         "isNew": false, 
         "content": "안녕하세요.\n\n기숙사 내 음식물 반입 관련 안내드립니다.\n\n반입 금지 품목:\n- 냄새가 강한 음식\n- 조리가 필요한 날음식\n- 주류\n\n위생적이고 쾌적한 환경을 위해 협조 부탁드립니다.\n\n감사합니다.",
-        "image": "/notice.png"
+        "image": "/Dormitory_Client/notice.png"
     } 
 ]
