@@ -6,11 +6,14 @@ import Home from './pages/Home';
 import Meal from './pages/Meal';
 import Login from "./pages/Login";
 import SuggestionPage from './pages/SuggestionPage';
-import SuggestionWritePage from './pages/SuggestionWritePage'; // 작성 페이지
+import SuggestionWritePage from './pages/SuggestionWritePage';
 import NoticeList from "./pages/noticeList";
 import NoticeDetail from "./pages/noticeDetail";
 import SelectRoom from "./pages/SelectRoom";
 import ScanQR from "./pages/scanQR";
+import Mypage from "./pages/Mypage";
+import EditInformation from './pages/EditInformation';
+
 
 const App = () => {
   return (
@@ -25,7 +28,8 @@ const App = () => {
         <Route path="/noticeList" element={<NoticeList />} />
         <Route path="/notices/:id" element={<NoticeDetail />} />
         <Route path="/scanQR" element={<ScanQR />} />
-        
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/edit" element={<EditInformation />} />
       </Routes>
   );
 };

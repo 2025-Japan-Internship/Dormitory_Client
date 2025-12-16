@@ -90,7 +90,7 @@ function Song(){
       <header className="header">
         <div
           className="backButton"
-          onClick={() => navigate("/home")}
+          onClick={() => navigate(-1)}
           style={{ backgroundImage: `url(${Back})` }}
         />
         <h1 className="pageTitle">기상송 신청</h1>
