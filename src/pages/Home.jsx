@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "../supabaseClient";
-
 import Bell from '../assets/bell.png';
 import Profile from '../assets/profile.png';
 import Food from '../assets/food.png';
@@ -179,7 +178,7 @@ const Home = () => {
         </div>
         <div className="headerIcons">
           <img src={Bell} alt="bell" className="notificationBell" />
-          <img src={profileImage || Profile} alt="Profile" className="profileCircle" referrerPolicy="no-referrer"/>
+          <img src={profileImage || Profile} alt="Profile" className="profileCircle" referrerPolicy="no-referrer" onClick={() => navigate("/mypage")}/>
         </div>
       </header>
 
