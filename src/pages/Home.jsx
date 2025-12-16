@@ -10,6 +10,7 @@ import Morning from '../assets/morning.png';
 import Arrow from '../assets/arrow.png';
 import Qr from '../assets/qr.png';
 import noticeData from '../data/notice.json';
+import useUserProfile from "../hooks/useUserProfile";
 
  
 
@@ -41,6 +42,7 @@ const COLORS = {
 
 
 const Home = () => {
+  
   const location = useLocation();
   const navigate = useNavigate();
   const sliderRef = useRef(null);
@@ -58,6 +60,8 @@ const Home = () => {
   const [meal, setMeal] = useState({ time: "오늘", menu: "불러오는 중..." });
   const API_KEY = "54bf68e058c145038edde0ea0e7e3ab2";
   const SCHOOL_CODE = "7011569";
+
+  const { profile, loading } = useUserProfile();
 
   useEffect(() => {
     const sortedCards = [...noticeData]
@@ -93,9 +97,6 @@ const Home = () => {
         const fullName = user.user_metadata?.full_name ?? "";
         const parsedName = fullName.includes("_") ? fullName.split("_")[1] : fullName;
         setNameOnly(parsedName);
-
-        const profilePic = user.identities?.[0]?.identity_data?.picture || user.user_metadata?.avatar_url || "";
-        setProfileImage(profilePic);
       }
     };
   
@@ -170,7 +171,7 @@ useEffect(() => {
   fetchMeal();
 }, []);
 
-
+  if (loading) return null;
   const handleScroll = () => {
     const slider = sliderRef.current;
     if (!slider) return;
@@ -190,7 +191,14 @@ useEffect(() => {
         </div>
         <div className="headerIcons">
           <img src={Bell} alt="bell" className="notificationBell" />
-          <img src={profileImage || Profile} alt="Profile" className="profileCircle" referrerPolicy="no-referrer" onClick={() => navigate("/mypage")}/>
+          <img
+            src={profile?.avatarUrl || Profile}
+            alt="Profile"
+            className="profileCircle"
+            referrerPolicy="no-referrer"
+            onClick={() => navigate("/mypage")}
+          />
+
         </div>
       </header>
 

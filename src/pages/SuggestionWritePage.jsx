@@ -8,6 +8,21 @@ import { supabase } from "../supabaseClient";
 export default function SuggestionWritePage() {
   const navigate = useNavigate();
   const [content, setContent] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setImageFile(file); // 1개만
+  };
+
+
+  const handleRemoveImage = () => {
+  setImageFile(null);
+};
+
 
   const handleRegister = async () => {
   // 로그인 사용자 정보 가져오기
@@ -33,18 +48,39 @@ export default function SuggestionWritePage() {
     return;
   }
 
+  let imagePath = null;
+
+  if (imageFile) {
+    const fileExt = imageFile.name.split('.').pop();
+    const fileName = `${user.id}_${Date.now()}.${fileExt}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from('suggestion_image')
+      .upload(fileName, imageFile);
+
+    if (uploadError) {
+      console.error("이미지 업로드 실패", uploadError);
+      return;
+    }
+
+    imagePath = fileName; // DB에 저장할 path
+  }
+
+
   // suggestions 테이블에 등록
   const { data, error: insertError } = await supabase
-    .from('suggestions')
-    .insert([
-      {
-        user_id: user.id,
-        user_name: profileData.name,
-        roomNum: profileData.roomNum,
-        content: content,
-        created_at: new Date().toISOString(),
-      }
-    ]);
+  .from('suggestions')
+  .insert([
+    {
+      user_id: user.id,
+      user_name: profileData.name,
+      roomNum: profileData.roomNum,
+      content: content,
+      image_path: imagePath,
+      created_at: new Date().toISOString(),
+    }
+  ]);
+
 
   if (insertError) {
     console.error("등록 실패:", insertError);
@@ -84,10 +120,26 @@ export default function SuggestionWritePage() {
 
       {/* 사진 첨부 + 키보드 영역 */}
       <div className="bottom-bar">
-        <button className="photo-btn">
+        <label className="photo-btn">
           <img src={Icon_Image} alt="사진 첨부" />
-        </button>
+          <input
+            type="file"
+            accept="image/*"
+            style={{ display: "none" }}
+            onChange={handleImageChange}
+          />
+        </label>
+
+        {imageFile && (
+          <div className="image-info">
+            <span className="file-name">{imageFile.name}</span>
+            <button className="remove-image-btn" onClick={handleRemoveImage}>
+              ✕
+            </button>
+          </div>
+        )}
       </div>
+
     </div>
   );
 }

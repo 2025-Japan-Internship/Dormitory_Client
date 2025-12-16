@@ -1,12 +1,20 @@
 import React from 'react';
 import './SuggestionCard.css';
 import Icon_remove from '../assets/icon_remove.png';
+import Profile from '../assets/profile.png';
+
 
 export default function SuggestionCard({ profile, name, timeAgo, content, onDelete }) {
   return (
     <div className="suggestion-card">
       <div className="card-header">
-        <img className="profile-pic" src={profile} alt="profile" />
+        <img
+          className="profile-pic"
+          src={profile || Profile}
+          alt="profile"
+          referrerPolicy="no-referrer"
+        />
+
         <div className="user-info">
           <div className="name">{name}</div>
           <div className="time">{timeAgo}</div>
