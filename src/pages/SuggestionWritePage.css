@@ -96,3 +96,27 @@
   height: 1px;
   background-color: #f2f2f2;
 }
+
+.image-info {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+  font-size: 13px;
+  color: #555;
+}
+
+.file-name {
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.remove-image-btn {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ff3b30;
+}
