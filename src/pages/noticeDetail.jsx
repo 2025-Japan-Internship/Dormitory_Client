@@ -15,6 +15,10 @@ export default function NoticeDetail() {
   
   const navigate = useNavigate();
 
+  
+
+  // 더미 데이터
+
   // JSON 데이터에서 해당 id 찾기
   const notice = noticeData.find((n) => n.id === Number(id));
 

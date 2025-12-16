@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+// BrowserRouter 제거
 import Song from './pages/Song';
 import Home from './pages/Home';
 import Meal from './pages/Meal';
@@ -34,4 +34,4 @@ const App = () => {
   );
 };
 
-export default App; 
+export default App;

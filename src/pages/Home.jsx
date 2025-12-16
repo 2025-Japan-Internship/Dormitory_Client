@@ -62,7 +62,7 @@ const Home = () => {
   useEffect(() => {
     const sortedCards = [...noticeData]
       .sort((a, b) => new Date(b.date) - new Date(a.date)) // 최신순
-      .slice(0, 10) // 최신 10개만
+      .slice(0, 4) // 최신 4개만
       .map((n, idx) => ({
         type: idx === 0 ? 'main' : 'sub',
         time: getTimeAgo(n.date),
@@ -98,7 +98,7 @@ const Home = () => {
         setProfileImage(profilePic);
       }
     };
-
+  
     loadUser();
   }, []);
 
