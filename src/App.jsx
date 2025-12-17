@@ -27,10 +27,11 @@ const App = () => {
         <Route path="/suggestion/write" element={<SuggestionWritePage />} />
         <Route path="/noticeList" element={<NoticeList />} />
         <Route path="/notices/:id" element={<NoticeDetail />} />
-        <Route path="/scanQR" element={<ScanQR />} />
+        <Route path="/qr" element={<ScanQR />} />
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/edit" element={<EditrInformation />} />
-      </Routes>
+
+        <Route path="/edit" element={<EditInformation />} />
+      </Routes> 
   );
 };
 
