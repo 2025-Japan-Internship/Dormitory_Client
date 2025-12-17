@@ -41,11 +41,21 @@ export default function SuggestionPage() {
     if (!userId) return;
     const fetchSuggestions = async () => {
       const { data, error } = await supabase
-        .from('suggestions')
-        .select('id, content, created_at, user_name, roomNum')
-        .eq('user_id', userId)
-        .order('created_at', { ascending: false })
-        .limit(10);
+      .from('suggestions')
+      .select(`
+        id,
+        content,
+        created_at,
+        user_name,
+        profiles (
+          roomNum,
+          avatar_url
+        )
+      `)
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false });
+
+
       if (error) console.error("불러오기 실패:", error);
       else setSuggestions(data);
     };
@@ -73,15 +83,17 @@ export default function SuggestionPage() {
       <div className="suggestion-list">
         {suggestions.length === 0 && <p>작성한 건의사항이 없습니다.</p>}
         {suggestions.map(s => (
-          <SuggestionCard
-            key={s.id}
-            profile={avatarUrl} // auth에서 가져온 사진
-            name={`${s.roomNum}호 ${s.user_name}`}
-            timeAgo={getTimeAgo(s.created_at)}
-            content={s.content}
-            onDelete={() => handleDelete(s.id)}
-          />
-        ))}
+        <SuggestionCard
+          key={s.id}
+          profile={s.profiles?.avatar_url}
+          name={`${s.profiles?.roomNum ?? ''}호 ${s.user_name}`}
+          timeAgo={getTimeAgo(s.created_at)}
+          content={s.content}
+          onDelete={() => handleDelete(s.id)}
+        />
+
+      ))}
+
       </div>
     </div>
   );
