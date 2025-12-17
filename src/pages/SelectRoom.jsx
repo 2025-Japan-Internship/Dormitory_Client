@@ -54,7 +54,7 @@ export default function SelectRoom() {
   const handleSelectRoom = async () => {
     if (!selectedRoom) {
       alert("호실을 선택해주세요");
-      return;
+      return; 
     }
 
     const {

@@ -38,7 +38,7 @@ export default function ScanQR() {
         canvas.height = video.videoHeight;
         canvas.width = video.videoWidth;
         
-        // 카메라 프레임을 캔버스에 그림
+
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
         // 캔버스의 이미지 데이터를 가져와서 QR 분석
